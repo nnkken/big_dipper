@@ -22,7 +22,10 @@ export default class ChainStates extends Component{
             }
 
             if (this.props.coinStats.usd){
-                data.price = numbro(this.props.coinStats.usd).format("$0,0.00"),
+                data.price = numbro(this.props.coinStats.usd).formatCurrency({
+                    thousandSeparated: true,
+                    mantissa: 4
+                }),
                 data.marketCap = numbro(this.props.coinStats.usd_market_cap).format("$0,0.00")
             }
 
@@ -53,7 +56,10 @@ export default class ChainStates extends Component{
         if (this.props.coinStats != prevProps.coinStats){
             if (this.props.coinStats.usd){
                 this.setState({
-                    price: numbro(this.props.coinStats.usd).format("$0,0.00"),
+                    price: numbro(this.props.coinStats.usd).formatCurrency({
+                        thousandSeparated: true,
+                        mantissa: 4
+                    }),
                     marketCap: numbro(this.props.coinStats.usd_market_cap).format("$0,0.00")
                 })
             }
