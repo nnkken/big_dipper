@@ -8,6 +8,7 @@ import PChart from '../components/Chart.jsx';
 import Account from '../components/Account.jsx';
 import { InfoIcon } from '../components/Icons.jsx';
 import TimeStamp from '../components/TimeStamp.jsx';
+import { numbroVotingPower } from '../../../both/utils/voting-power.js';
 
 const DOWNTIMECHUCK = 4;
 const T = i18n.createComponent();
@@ -134,7 +135,7 @@ export default class MissedBlocksTable extends Component{
                 <td>{ `${record.precommitsCount}/${record.validatorsCount}` }</td>
                 <td>
                     { numbro(record.votedVotingPower/record.votingPower).format('0.0%') }
-                    <InfoIcon tooltipText={`${numbro(record.votedVotingPower).format('0,0')}/${numbro(record.votingPower).format('0,0')}`}/>
+                    <InfoIcon tooltipText={`${numbroVotingPower(record.votedVotingPower).format('0,0')}/${numbroVotingPower(record.votingPower).format('0,0')}`}/>
                 </td>
             </tr>
         }

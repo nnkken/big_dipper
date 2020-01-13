@@ -5,6 +5,7 @@ import numbro from 'numbro';
 import i18n from 'meteor/universe:i18n';
 import TimeStamp from '../components/TimeStamp.jsx';
 import Coin from '/both/utils/coins.js';
+import { numbroVotingPower, votingPowerForDisplay } from '../../../both/utils/voting-power.js';
 
 const T = i18n.createComponent();
 
@@ -63,17 +64,17 @@ export default class ChainStatus extends React.Component {
             switch (this.state.avgVotingPowerType){
             case "":
                 this.setState({
-                    votingPower: numbro(this.props.status.activeVotingPower).format('0,0.00a'),
+                    votingPower: numbroVotingPower(this.props.status.activeVotingPower).format('0,0.00a'),
                 });
                 break;
             case "h":
                 this.setState({
-                    votingPower: numbro(this.props.status.lastHourVotingPower).format('0,0.00a'),
+                    votingPower: numbroVotingPower(this.props.status.lastHourVotingPower).format('0,0.00a'),
                 });
                 break;
             case "d":
                 this.setState({
-                    votingPower: numbro(this.props.status.lastDayVotingPower).format('0,0.00a'),
+                    votingPower: numbroVotingPower(this.props.status.lastDayVotingPower).format('0,0.00a'),
                 });
                 break;
 
@@ -124,21 +125,21 @@ export default class ChainStatus extends React.Component {
             this.setState({
                 votingPowerText: <T>chainStatus.now</T>,
                 avgVotingPowerType: "",
-                votingPower: numbro(this.props.status.activeVotingPower).format('0,0.00a')
+                votingPower: numbroVotingPower(this.props.status.activeVotingPower).format('0,0.00a')
             })
             break;
         case "h":
             this.setState({
                 votingPowerText: "1h",
                 avgVotingPowerType: "h",
-                votingPower: numbro(this.props.status.lastHourVotingPower).format('0,0.00a')
+                votingPower: numbroVotingPower(this.props.status.lastHourVotingPower).format('0,0.00a')
             })
             break;
         case "d":
             this.setState({
                 votingPowerText: "1d",
                 avgVotingPowerType: "d",
-                votingPower: numbro(this.props.status.lastDayVotingPower).format('0,0.00a')
+                votingPower: numbroVotingPower(this.props.status.lastDayVotingPower).format('0,0.00a')
             })
             break;
 

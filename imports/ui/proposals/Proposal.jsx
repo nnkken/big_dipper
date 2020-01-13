@@ -15,6 +15,7 @@ import { Meteor } from 'meteor/meteor';
 import Coin from '/both/utils/coins.js';
 import TimeStamp from '../components/TimeStamp.jsx';
 import { ProposalActionButtons } from '../ledger/LedgerActions.jsx';
+import { numbroVotingPower } from '../../../both/utils/voting-power.js';
 
 const T = i18n.createComponent();
 
@@ -251,7 +252,7 @@ export default class Proposal extends Component{
                         </Col>
                         <Col className="voting-power data" md={4}>
                             <i className="material-icons d-md-none">power</i>
-                            {(vote.votingPower!==undefined)?numbro(vote.votingPower).format('0,0.00'):""}
+                            {(vote.votingPower!==undefined)?numbroVotingPower(vote.votingPower).format('0,0.00'):""}
                         </Col>
                         <Col className="voting-power-percent data" md={3}>
                             <i className="material-icons d-md-none">equalizer</i>

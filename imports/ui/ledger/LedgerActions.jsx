@@ -11,6 +11,7 @@ import AccountTooltip from '/imports/ui/components/AccountTooltip.jsx';
 import Coin from '/both/utils/coins.js';
 import numbro from 'numbro';
 import TimeStamp from '../components/TimeStamp.jsx';
+import { numbroVotingPower } from '../../../both/utils/voting-power.js';
 
 const maxHeightModifier = {
     setMaxHeight: {
@@ -527,7 +528,7 @@ class LedgerButton extends Component {
                                 <Col xs='12' className='moniker'>{validator.description.moniker}</Col>
                                 <Col xs='3' className="voting-power data">
                                     <i className="material-icons">power</i>
-                                    {validator.voting_power?numbro(validator.voting_power).format('0,0'):0}
+                                    {validator.voting_power?numbroVotingPower(validator.voting_power).format('0,0'):0}
                                 </Col>
 
                                 <Col xs='4' className="commission data">

@@ -6,6 +6,7 @@ import numbro from 'numbro';
 import Avatar from '../components/Avatar.jsx';
 import Account from './Account.jsx';
 import TimeStamp from '../components/TimeStamp.jsx';
+import { numbroVotingPower } from '../../../both/utils/voting-power.js';
 
 export default class AccountTooltip extends Account{
     constructor(props){
@@ -56,7 +57,7 @@ export default class AccountTooltip extends Account{
                 </Row>
                 <Row className="voting-power data">
                     <i className="material-icons">power</i>
-                    {validator.voting_power?numbro(validator.voting_power).format('0,0'):0}
+                    {validator.voting_power?numbroVotingPower(validator.voting_power).format('0,0'):0}
                 </Row>
                 <Row className="self-delegation data">
                     <i className="material-icons">equalizer</i>
